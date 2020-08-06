@@ -53,7 +53,7 @@ renderCard(){
 
    // const currentData = this.state.data.slice(0, Math.min(this.state.currentValue, this.state.data.length))
     return currentData.map((currSingleData, index)=>{
-          return <CardClass key={index} data={currentData[index]}/>
+          return <CardClass key={index} data={currentData[index]} setFilter ={this.setFilter}/>
     })
 }
 
@@ -64,6 +64,9 @@ optioValues(value){
                 currentValue : 6
             }
         })
+}
+setFilter(value){
+console.log(value)
 }
 render(){
         return(
