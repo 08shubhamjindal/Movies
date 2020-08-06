@@ -36,33 +36,36 @@ renderCard(){
     const selectedData = this.state.selectedData;
     const currentValue = this.state.currentValue;
     var currentData = [];
-    var flag=0;
     for(let i=0; i<data.length; i++){
+          var flag=0;
           const genresValue = data[i]["genres"].split("|");
           for(let j=0; j<selectedData.length; j++){
                if(genresValue.includes(selectedData[j])===false){ flag = 1; break}
           }
+
           if(flag===0 && currentData.length<currentValue){
+              console.log(data[i])
               currentData.push(data[i]);
           }else if(currentData.length===currentValue){
               break;
           }
     }
+
    // const currentData = this.state.data.slice(0, Math.min(this.state.currentValue, this.state.data.length))
     return currentData.map((currSingleData, index)=>{
-          return <CardClass key={index} data={this.state.data[index]}/>
+          return <CardClass key={index} data={currentData[index]}/>
     })
 }
 
 optioValues(value){
         this.setState(()=>{
             return{
-                selectedData : value
+                selectedData : value,
+                currentValue : 6
             }
         })
 }
 render(){
-        console.log(this.state.selectedData)
         return(
             <div>
                 <Selector optioValues={this.optioValues}/>
