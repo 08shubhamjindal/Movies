@@ -12,6 +12,7 @@ constructor(props){
     }
     this.loadMore = this.loadMore.bind(this)
     this.optioValues = this.optioValues.bind(this)
+    this.setFilter = this.setFilter.bind(this)
 }
 async componentWillMount(){
     fetch(`http://starlord.hackerearth.com/movies`)
@@ -65,9 +66,17 @@ optioValues(value){
             }
         })
 }
+
 setFilter(value){
 console.log(value)
+const joined = this.state.selectedData.concat(value);
+this.setState((prev)=>{
+    return{
+        selectedData : joined
+    }
+})
 }
+
 render(){
         return(
             <div>

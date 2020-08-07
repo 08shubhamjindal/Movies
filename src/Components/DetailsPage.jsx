@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 class DetailsPage extends React.Component{
     render(){
-        console.log(this.props.match)
+        console.log(this.props.location.data)
         return (
             <div>
             <Link to='/'>Home</Link>

@@ -32,7 +32,10 @@ class CardClass extends React.Component{
                 <p>{this.props.data['actor_2_name']}</p>
                 <p>{ this.props.data['budget'] ?  this.props.data['budget'] : 'Not Available'}</p>
                 <p>{this.showGeners()}</p>
-                <Link to={`/${this.props.data['movie_title']}`}>
+                <Link to ={{
+                      pathname : `/${this.props.data['movie_title']}`,
+                      data : this.props
+                }}>
                 <Button type="primary">Get Details</Button>
                 </Link>
               </Card>
