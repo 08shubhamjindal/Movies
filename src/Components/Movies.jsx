@@ -22,6 +22,17 @@ async componentWillMount(){
              data : json
          }
     }));
+
+    if(this.props.location.filter){
+    const joined = this.state.selectedData.concat(this.props.location.filter.single);
+    this.setState(()=>{
+        return {
+            selectedData : joined
+        }
+    })
+    }else{
+        console.log('ssssssss')
+    }
 }
 
 loadMore(){
